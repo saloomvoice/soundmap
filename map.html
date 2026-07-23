@@ -54,8 +54,21 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
 maxZoom:19
 }).addTo(map);
 
-L.marker([31.9539,35.9106]).addTo(map)
-.bindPopup("📍 عمان - الأردن");
+var marker = L.marker([31.9539,35.9106]).addTo(map);
+
+marker.bindPopup("📍 عمان - الأردن").openPopup();
+
+map.on("click", function(e){
+
+marker.setLatLng(e.latlng);
+
+marker.bindPopup(
+"📍 الموقع الجديد<br>" +
+"خط العرض: " + e.latlng.lat.toFixed(6) +
+"<br>خط الطول: " + e.latlng.lng.toFixed(6)
+).openPopup();
+
+});
 
 </script>
 
