@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>خريطة SoundMap</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+<style>
+
+body{
+margin:0;
+font-family:Tahoma,sans-serif;
+background:#111827;
+color:white;
+}
+
+header{
+background:#0f172a;
+padding:20px;
+text-align:center;
+}
+
+#map{
+height:80vh;
+width:100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🗺️ خريطة SoundMap</h1>
+
+<p>اضغط على أي مكان لاستكشاف الأصوات.</p>
+
+</header>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+
+var map = L.map('map').setView([31.5,36],6);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+maxZoom:19
+}).addTo(map);
+
+L.marker([31.9539,35.9106]).addTo(map)
+.bindPopup("📍 عمان - الأردن");
+
+</script>
+
+</body>
+</html>
